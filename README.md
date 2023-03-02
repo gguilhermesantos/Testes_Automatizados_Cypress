@@ -23,20 +23,51 @@ Estas instruções fornecerão uma cópia do projeto em execução em sua máqui
 
 Após aberto, clicar em **E2E Testing** > **Continue** > Escolher um navegador de sua preferencia e clicar em **Start E2E Testing in Chrome** e assim estará tudo pronto para começar o desenvolvimento.
 
-Para utilizar BDD,
-dentro do e2e colocar features
+Para utilizar BDD:
+* Dentro da pasta `e2e` colocar os arquivos `.features`
 
-suporte tem steps, mas melhor colocar em page object
-page object dentro do suporte
-suporte > elements
+* Dentro de `support` colocar os arquivos de definições dos passos - Dar preferência em utilizar page object
+* Dentro de `support` colocar os arquivos de page object (page_object>elements)
 
-colocar caminhos no package json cypress preprocessos
+* Colocar path dos arquivos do BDD e Page Object no arquivo `package.json` (cypress preprocessor)
+(talvez seja o arquivo cypress.config.js)
+Ex.
+```
+{
+  "testFiles": "**/*.{feature,features,spec.js}",
+  "ignoreTestFiles": [
+    "**/1-getting-started/*.js",
+    "**/2-advanced-examples/*.js"
+  ]
+}
+```
 
-cypress config colocar path e async function setupnode
+No arquivo `cypress.config.js` configurar da seguinte forma:
+```js
+async function setupNodeEvents(
+  on: Cypress.PluginEvents,
+  config: Cypress.PluginConfigOptions
+): Promise<Cypress.PluginConfigOptions> {
+  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
+  await addCucumberPreprocessorPlugin(on, config);
 
-ts ou js ? .ts é mais tipado
+  on(
+    'file:preprocessor',
+    createBundler({
+      plugins: [createEsbuildPlugin(config)],
+    })
+  );
 
-devops para testes para debater
+  return config;
+}
+```
+No arquivo `package.json` configurar da seguinte forma:
+```js
+const cucumber = require('cypress-cucumber-preprocessor').default
+module.exports = (on, config) => {
+  on('file:preprocessor', cucumber())
+}
+```
 
 ## Rodando testes
 
@@ -108,7 +139,7 @@ Caso não funcione o push opte por esse metodo: [Clique aqui](https://www.doacti
 * Agora, você deve copiar o seu token:
   - A última etapa é adicionar o token recém copiado ao endereço do seu repositório remoto e assim subir alterações para o github:
 ```sh
-git remote set-url origin https://{{TOKEN}}@github.com/gguilhermesantos/Testes_Automatizados_Flutter
+git remote set-url origin https://{{TOKEN}}@github.com/gguilhermesantos/Testes_Automatizados_Cypress
 git push -u origin master
 ```
 
