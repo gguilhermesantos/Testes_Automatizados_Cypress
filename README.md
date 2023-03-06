@@ -24,8 +24,8 @@ Estas instruções fornecerão uma cópia do projeto em execução em sua máqui
 Após aberto, clicar em **E2E Testing** > **Continue** > Escolher um navegador de sua preferencia e clicar em **Start E2E Testing in Chrome** e assim estará tudo pronto para começar o desenvolvimento.
 
 Para utilizar BDD:
-* Dentro da pasta `e2e` colocar os arquivos `.features`
 
+* Dentro da pasta `e2e` colocar os arquivos `.features`
 * Dentro de `support` colocar os arquivos de definições dos passos - Dar preferência em utilizar page object
 * Dentro de `support` colocar os arquivos de page object (page_object>elements)
 

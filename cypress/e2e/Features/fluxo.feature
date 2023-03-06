@@ -1,8 +1,21 @@
-Feature: Testando login do site
+Feature: Testando fluxo do site
 
-Scenario: Login sem senha
-  When I open the to-do page
-  Then 2 to-do items are displayed
-  And to-do item 1 is "Pay electric bill"
+Scenario: Seguir fluxo tirando itens do carrinho
+  When realizar login com sucesso
+  And escolho "3" produtos
+  And clico no botão de "carrinho"
+  And removo itens do carrinho
+  And clico no botão de "checkout"
+  And preencho checkout com "dadosCorretos"
+  And clico no botão de "continue"
+  Then valido que existe um item a menos
 
- validar sem itens / checkout tirando um item / validar overview // complete
+Scenario: Seguir fluxo até completar compra
+  When realizar login com sucesso
+  And escolho "3" produtos
+  And clico no botão de "carrinho"
+  And clico no botão de "checkout"
+  And preencho checkout com "dadosCorretos"
+  And clico no botão de "continue"
+  And clico no botão de "Finalizar"
+  Then verifico "mensagemPedidoSucesso"
