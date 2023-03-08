@@ -18,55 +18,45 @@ Estas instruções fornecerão uma cópia do projeto em execução em sua máqui
 `npm init --yes` - cria o arquivo package.json 
 `npm install -D cypress` ou `npm install cypress --save-dev` - Instalação do Cypress (node_modules)
 `npm install --save-dev cypress-cucumber-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin - está depressiado
+`npm install -D @bahmutov/cypress-esbuild-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin na versão 10 do cy
+`npm install --save-dev @badeball/cypress-cucumber-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin na versão 10 do cy
 `npm install --save-dev @cucumber/cucumber` - Instalação do cucumber para utilização da estrutura do Gherkin
+`npm i` - Instalação das dependências (redundância) 
 `npx cypress open` - cria estrutura para o cypress e pode dar timeout na primeira vez.
 
 Após aberto, clicar em **E2E Testing** > **Continue** > Escolher um navegador de sua preferencia e clicar em **Start E2E Testing in Chrome** e assim estará tudo pronto para começar o desenvolvimento.
 
 Para utilizar BDD:
 
-* Dentro da pasta `e2e` colocar os arquivos `.features`
-* Dentro de `support` colocar os arquivos de definições dos passos - Dar preferência em utilizar page object
-* Dentro de `support` colocar os arquivos de page object (page_object>elements)
-
-* Colocar path dos arquivos do BDD e Page Object no arquivo `package.json` (cypress preprocessor)
-* Alterar arquivo cypress.config.js
+* Dentro da pasta `e2e` colocar os arquivos `.feature`
+* Dentro de `support` colocar os arquivos em pastas de definições das features, page object e elementos da pagina 
+* Alterar arquivo `cypress.config.js` com setup do cucumber
 Ex.
-```
-{
-  "testFiles": "**/*.{feature,features,spec.js}",
-  "ignoreTestFiles": [
-    "**/1-getting-started/*.js",
-    "**/2-advanced-examples/*.js"
-  ]
-}
-```
-
-No arquivo `cypress.config.js` configurar da seguinte forma:
 ```js
-async function setupNodeEvents(
-  on: Cypress.PluginEvents,
-  config: Cypress.PluginConfigOptions
-): Promise<Cypress.PluginConfigOptions> {
-  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
-  await addCucumberPreprocessorPlugin(on, config);
+const { defineConfig } = require("cypress");
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild");
+
+async function setupNodeEvents(on, config) {
+  await preprocessor.addCucumberPreprocessorPlugin(on, config);
 
   on(
-    'file:preprocessor',
+    "file:preprocessor",
     createBundler({
-      plugins: [createEsbuildPlugin(config)],
+      plugins: [createEsbuildPlugin.default(config)],
     })
   );
-
   return config;
 }
-```
-No arquivo `package.json` configurar da seguinte forma:
-```js
-const cucumber = require('cypress-cucumber-preprocessor').default
-module.exports = (on, config) => {
-  on('file:preprocessor', cucumber())
-}
+
+module.exports = defineConfig({
+  e2e: {
+    specPattern: "**/*.feature",
+    supportFile: false,
+    setupNodeEvents,
+  },
+});
 ```
 
 ## Rodando testes
@@ -79,7 +69,7 @@ module.exports = (on, config) => {
 * Para rodar testes:
 * No terminal, na pasta do projeto, rodar o comando:
 ```sh
-npx cypress run --spec "cypress/integration/**/Sample.feature"
+npx cypress run --spec "cypress/e2e/Features/login.feature"
 ```
 Caso rode sem a tag, vai rodar todos os testes
 
@@ -150,6 +140,11 @@ git push -u origin master
 * [Instalação Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress)
 * [Gherkin no cypress](https://dev.to/leading-edje/using-gherkin-with-your-cypress-tests-4p20)
 * [Page Object no Cypress](https://dev.to/leading-edje/using-page-objects-in-cypress-co9)
+* [Caso de config do cypress](https://dev.to/kailashpathak7/how-to-integrate-bdd-cucumber-in-cypress-10-50ef)
+* [github utilizado no projeto](https://github.com/bahmutov/cypress-esbuild-preprocessor)
+* [github utilizado no projeto](https://github.com/badeball/cypress-cucumber-preprocessor)
+* [cucumber no cypress 10](https://dev.to/kailashpathak7/how-to-integrate-bdd-cucumber-in-cypress-10-50ef)
+* [site sobre cypress](https://talkingabouttesting.com/)
 
 ### Tags para commit
 Lista de tags e seus significados para commits:
