@@ -15,14 +15,14 @@ Estas instruções fornecerão uma cópia do projeto em execução em sua máqui
 
 ### Instalando
 
-`npm init --yes` - cria o arquivo package.json 
-`npm install -D cypress` ou `npm install cypress --save-dev` - Instalação do Cypress (node_modules)
-`npm install --save-dev cypress-cucumber-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin - está depressiado
-`npm install -D @bahmutov/cypress-esbuild-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin na versão 10 do cy
-`npm install --save-dev @badeball/cypress-cucumber-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin na versão 10 do cy
-`npm install --save-dev @cucumber/cucumber` - Instalação do cucumber para utilização da estrutura do Gherkin
-`npm i` - Instalação das dependências (redundância) 
-`npx cypress open` - cria estrutura para o cypress e pode dar timeout na primeira vez.
+* `npm init --yes` - cria o arquivo package.json 
+* `npm install -D cypress` ou `npm install cypress --save-dev` - Instalação do Cypress (node_modules)
+* `npm install --save-dev cypress-cucumber-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin - está depressiado
+* `npm install -D @bahmutov/cypress-esbuild-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin na versão 10 do cy
+* `npm install --save-dev @badeball/cypress-cucumber-preprocessor` - Instalação do cucumber para utilização da estrutura do Gherkin na versão 10 do cy
+* `npm install --save-dev @cucumber/cucumber` - Instalação do cucumber para utilização da estrutura do Gherkin
+* `npm i` - Instalação das dependências (redundância) 
+* `npx cypress open` - cria estrutura para o cypress e pode dar timeout na primeira vez.
 
 Após aberto, clicar em **E2E Testing** > **Continue** > Escolher um navegador de sua preferencia e clicar em **Start E2E Testing in Chrome** e assim estará tudo pronto para começar o desenvolvimento.
 
@@ -92,11 +92,11 @@ Caso rode sem a tag, vai rodar todos os testes
 ### Cypress
 
 Utilizar nos arquivos `.spec.js` o comando `/// <reference types="cypress" />` para deixar mais facil o acesso à documentação e infos sobre os comandos
-hooks
-before - executa antes de todos os testes
-beforeEach - Executa antes de cada teste
-after - executa depois de todos os testes
-afterEach - executa depois de cada teste
+* `hooks`
+* `before` - executa antes de todos os testes
+* `beforeEach` - Executa antes de cada teste
+* `after` - executa depois de todos os testes
+* `afterEach` - executa depois de cada teste
 
 ### Vim
 Comandos para Vi:
