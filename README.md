@@ -10,8 +10,8 @@ Estas instruções fornecerão uma cópia do projeto em execução em sua máqui
 ### Pré requisitos
 
 * Ter inicializado e configurado um repositório git
-* Ter conhecimentos no site: https://www.saucedemo.com/
-* Ter instalado Node(https://nodejs.org/en/download/)
+* Ter conhecimentos no site a ser testado: https://www.saucedemo.com/
+* Ter instalado [Node](https://nodejs.org/en/download/)
 
 ### Instalando
 
@@ -141,10 +141,10 @@ git push -u origin master
 * [Gherkin no cypress](https://dev.to/leading-edje/using-gherkin-with-your-cypress-tests-4p20)
 * [Page Object no Cypress](https://dev.to/leading-edje/using-page-objects-in-cypress-co9)
 * [Caso de config do cypress](https://dev.to/kailashpathak7/how-to-integrate-bdd-cucumber-in-cypress-10-50ef)
-* [github utilizado no projeto](https://github.com/bahmutov/cypress-esbuild-preprocessor)
-* [github utilizado no projeto](https://github.com/badeball/cypress-cucumber-preprocessor)
-* [cucumber no cypress 10](https://dev.to/kailashpathak7/how-to-integrate-bdd-cucumber-in-cypress-10-50ef)
-* [site sobre cypress](https://talkingabouttesting.com/)
+* [Github utilizado no projeto](https://github.com/bahmutov/cypress-esbuild-preprocessor)
+* [Github utilizado no projeto](https://github.com/badeball/cypress-cucumber-preprocessor)
+* [Cucumber no cypress 10](https://dev.to/kailashpathak7/how-to-integrate-bdd-cucumber-in-cypress-10-50ef)
+* [Site sobre cypress](https://talkingabouttesting.com/)
 
 ### Tags para commit
 Lista de tags e seus significados para commits:
