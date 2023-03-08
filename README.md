@@ -30,7 +30,7 @@ Para utilizar BDD:
 * Dentro de `support` colocar os arquivos de page object (page_object>elements)
 
 * Colocar path dos arquivos do BDD e Page Object no arquivo `package.json` (cypress preprocessor)
-(talvez seja o arquivo cypress.config.js)
+* Alterar arquivo cypress.config.js
 Ex.
 ```
 {

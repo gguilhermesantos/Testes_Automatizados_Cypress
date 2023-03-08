@@ -1,26 +1,13 @@
 const { defineConfig } = require("cypress");
+const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    async setupNodeEvents(on,config) {
+        on(
+          'file:preprocessor', cucumber());
+      }
     },
-  },
-});
+  });
 
-/*async function setupNodeEvents(
-  on: Cypress.PluginEvents,
-  config: Cypress.PluginConfigOptions
-): Promise<Cypress.PluginConfigOptions> {
-  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
-  await addCucumberPreprocessorPlugin(on, config);
-
-  on(
-    'file:preprocessor',
-    createBundler({
-      plugins: [createEsbuildPlugin(config)],
-    })
-  );
-
-  return config;
-}*/
+{ "testFiles: **/**/**/*.{feature,features,spec.js}" };

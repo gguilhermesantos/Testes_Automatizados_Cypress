@@ -1,5 +1,5 @@
 import { elementosLogin } from '../support/page_object/elementos_login.js';
-
+import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given("acesso o site acesso o site", () => {
     loginPage.acessarSite();
