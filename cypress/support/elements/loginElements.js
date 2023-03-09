@@ -19,4 +19,4 @@ class LoginElements {
     mensagemcomSucessoValue = () => { return '' }
 }
 
-export default LoginElements;
+module.exports = new LoginElements();

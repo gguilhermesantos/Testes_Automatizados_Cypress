@@ -1,29 +1,29 @@
-import { elementosLogin } from '../support/page_object/elementos_login.js';
-import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import {LoginPage} from '../../support/page_object/loginPage.js';
 
-Given("acesso o site acesso o site", () => {
-    loginPage.acessarSite();
+Given(/^acesso o site$/, () => {
+    LoginPage.acessarSite();
 })
 
-When("preencho {String}", (campo) => {
+When(/^preencho "([^"]*)"$/, (campo) => {
     if (campo.split('_')[0] == "login") {
-        loginPage.preencherCampo(campo);
+        LoginPage.preencherCampo(campo);
     } else {
         cy.log("Erro");
     }
 })
 
-And("clico no botão de {String}", (botao) => {
+When(/^clico no botão de "([^"]*)"$/, (botao) => {
     if (botao.split('_')[0] == "login") {
-        loginPage.clicabtn(botao);
+        LoginPage.clicabtn(botao);
     } else {
         cy.log("Erro");
     }
 })
 
-Then("verifico {String}", (mensagem) => {
+Then(/^verifico "([^"]*)"$/, (mensagem) => {
     if (mensagem.split('_')[0] == "login") {
-        loginPage.validaMsg(mensagem);
+        LoginPage.validaMsg(mensagem);
     } else {
         cy.log("Erro");
     }

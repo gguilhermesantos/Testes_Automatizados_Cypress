@@ -4,7 +4,9 @@
   "description": "<a name=\"readme-top\"></a> # Testes Automatizados de frontend em Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:login_tests": "npx cypress open --spec \"cypress/e2e/Features/login.feature\"",
+    "cypress:headless": "npx cypress run --spec \"cypress/e2e/Features/login.feature\""
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,14 @@
     "@cucumber/cucumber": "^9.0.0",
     "cypress": "^12.7.0",
     "cypress-cucumber-preprocessor": "^4.3.1"
-  }
+  },
+  "stepDefinitions": [
+    "cypress/support/step_definitions/**/*.{js,ts}",
+    "cypress/support/page_object/**/*.js",
+    "cypress/support/elements/**/*.js"
+  ],
+  "page_object": [
+    "cypress/support/page_object/**/*.js",
+    "cypress/support/elements/**/*.js"
+  ]
 }

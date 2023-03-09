@@ -138,6 +138,7 @@ git push -u origin master
 * [Instalação cucumber](https://cucumber.io/docs/installation/javascript/)
 * [Vídeo sobre automação com Cypress](https://lnkd.in/dA6yqm5M)
 * [Instalação Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress)
+* [comandos do Cypress](https://docs.cypress.io/api/commands/get)
 * [Gherkin no cypress](https://dev.to/leading-edje/using-gherkin-with-your-cypress-tests-4p20)
 * [Page Object no Cypress](https://dev.to/leading-edje/using-page-objects-in-cypress-co9)
 * [Caso de config do cypress](https://dev.to/kailashpathak7/how-to-integrate-bdd-cucumber-in-cypress-10-50ef)
@@ -161,3 +162,19 @@ Lista de tags e seus significados para commits:
 * **bump:** Atualização de biblioteca ou framework
 
 <p align="center">(<a href="#readme-top">Voltar ao topo</a>)</p>
+
+proximos passos:
+Cypress - automatizando a jornada de visualizar o saldo no DevFinance
+
+funcao each 14m
+
+invoke 15m
+
+spark 07
+
+open roda normal 
+run roda headless
+
+mudar pra PT e colocar contexto
+
+tag 45m Cucumber com Cypress, passo a passo | AgiliDrops #03
