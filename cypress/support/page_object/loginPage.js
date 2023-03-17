@@ -2,7 +2,7 @@
 import {LoginElements} from '../elements/loginElements';
 //const loginElements = new LoginElements
 
-class LoginPage {
+export class LoginPage {
   acessarSite() {
     cy.visit('https://www.saucedemo.com/');
   }
@@ -25,4 +25,5 @@ class LoginPage {
     cy.get(LoginElements.CampoMsg()).should('contains.text', valueMsg);
   }
 }
-module.exports = new LoginPage();
+
+//module.exports = new LoginPage(); tirei por conta do export class

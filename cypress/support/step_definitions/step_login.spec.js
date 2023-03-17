@@ -3,6 +3,7 @@ import {LoginPage} from '../../support/page_object/loginPage.js';
 
 Given(/^acesso o site$/, () => {
     LoginPage.acessarSite();
+    //cy.visit('https://www.saucedemo.com/');
 })
 
 When(/^preencho "([^"]*)"$/, (campo) => {
