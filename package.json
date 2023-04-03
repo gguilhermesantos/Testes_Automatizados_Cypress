@@ -26,13 +26,7 @@
     "cypress": "^12.7.0",
     "cypress-cucumber-preprocessor": "^4.3.1"
   },
-  "stepDefinitions": [
-    "cypress/support/step_definitions/**/*.{js,ts}",
-    "cypress/support/page_object/**/*.js",
-    "cypress/support/elements/**/*.js"
-  ],
-  "page_object": [
-    "cypress/support/page_object/**/*.js",
-    "cypress/support/elements/**/*.js"
-  ]
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/support/step_definitions/*.{js,ts}"
+  }
 }
