@@ -130,7 +130,7 @@ Caso não funcione o push opte por esse metodo: [Clique aqui](https://www.doacti
   - A última etapa é adicionar o token recém copiado ao endereço do seu repositório remoto e assim subir alterações para o github:
 ```sh
 git remote set-url origin https://{{TOKEN}}@github.com/gguilhermesantos/Testes_Automatizados_Cypress
-git push -u origin master
+git push -u origin main
 ```
 
 ### Links úteis
